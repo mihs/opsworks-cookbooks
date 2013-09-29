@@ -106,6 +106,7 @@ node[:deploy].each do |application, deploy|
   default[:deploy][application][:auto_npm_install_on_deploy] = true
 
   # nodejs
+  default[:deploy][application][:nodejs][:run_script] = "server.js" # relative path to the script plus arguments
   default[:deploy][application][:nodejs][:restart_command] = "monit restart node_web_app_#{application}"
   default[:deploy][application][:nodejs][:stop_command] = "monit stop node_web_app_#{application}"
   default[:deploy][application][:nodejs][:port] = deploy[:ssl_support] ? 443 : 80
