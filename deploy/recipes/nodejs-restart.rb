@@ -6,6 +6,13 @@ node[:deploy].each do |application, deploy|
     next
   end
 
+  if node[:deploy][application][:nodejs][:run_script] == ""
+    Chef::Log.debug("XXX Skipping deploy::nodejs-restart for #{application} because we have no run_script specified")
+    next
+  else
+    Chef::Log.debug("XXX Deploying-restart the app: #{application} with run_script: #{node[:deploy][application][:nodejs][:run_script]}")
+  end
+
   ruby_block "restart node.js application #{application}" do
     block do
       Chef::Log.info("restart node.js via: #{node[:deploy][application][:nodejs][:restart_command]}")
