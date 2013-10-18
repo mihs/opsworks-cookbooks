@@ -6,6 +6,13 @@ node[:deploy].each do |application, deploy|
     next
   end
 
+  if node[:deploy][application][:nodejs][:run_script] == ""
+    Chef::Log.debug("XXX Skipping deploy::nodejs for #{application} because we have no run_script specified")
+    next
+  else
+    Chef::Log.debug("XXX Deploying the app: #{application} with run_script: #{node[:deploy][application][:nodejs][:run_script]}")
+  end
+
   opsworks_deploy_dir do
     user deploy[:user]
     group deploy[:group]
