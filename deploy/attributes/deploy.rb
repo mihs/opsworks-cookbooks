@@ -109,6 +109,7 @@ node[:deploy].each do |application, deploy|
   default[:deploy][application][:auto_npm_install_on_deploy] = true
 
   # nodejs
+  Chef::Log.debug("XXX layers: #{node[:opsworks][:instance][:layers]}")
   default[:deploy][application][:nodejs][:run_script] = "" # relative path to the script plus arguments
   default[:deploy][application][:nodejs][:restart_command] = "monit restart node_web_app_#{application}"
   default[:deploy][application][:nodejs][:stop_command] = "monit stop node_web_app_#{application}"
