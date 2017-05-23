@@ -6,8 +6,6 @@ description 'Installs/Configures Chrome browser'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version '4.0.1'
 
-chef_version '>= 12.14'
-
 supports 'centos', '>= 7.0'
 supports 'redhat', '>= 7.0'
 supports 'fedora'
