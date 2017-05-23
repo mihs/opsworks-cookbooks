@@ -1,4 +1,4 @@
-name 'google-chrome'
+name 'chrome'
 maintainer 'Dennis Hoer'
 maintainer_email 'dennis.hoer@gmail.com'
 license 'MIT'
