@@ -64,10 +64,10 @@ if !servers.empty?
     group 'root'
     mode '0644'
     variables(
-      proxy: cacher_ipaddress,
-      port: servers[0]['apt']['cacher_port'],
-      proxy_ssl: servers[0]['apt']['cacher_ssl_support'],
-      bypass: node['apt']['cache_bypass']
+      :proxy => cacher_ipaddress,
+      :port => servers[0]['apt']['cacher_port'],
+      :proxy_ssl => servers[0]['apt']['cacher_ssl_support'],
+      :bypass => node['apt']['cache_bypass']
     )
     action(node['apt']['compiletime'] ? :nothing : :create)
     notifies :run, 'execute[apt-get update]', :immediately
