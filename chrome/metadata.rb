@@ -14,4 +14,5 @@ supports 'debian'
 supports 'ubuntu'
 supports 'windows'
 
+depends 'apt'
 # depends 'dmg', '>= 3.0'
